@@ -340,6 +340,8 @@ def test_document_upload_csv_handling(
     "extension, expected_mimetype",
     (
         ("pdf", "application/pdf"),
+        ("Pdf", "application/pdf"),
+        ("PDF", "application/pdf"),
         ("csv", "text/csv"),
         ("txt", "text/plain"),
         ("json", "application/json"),
@@ -402,7 +404,7 @@ def test_document_upload_filename_handling(
                     "http://download.document-download-frontend-test",
                     "/services/00000000-0000-0000-0000-000000000000",
                     "/documents/ffffffff-ffff-ffff-ffff-ffffffffffff",
-                    f".{extension}",
+                    f".{extension}".lower(),
                     "?key=AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
                 ]
             ),
